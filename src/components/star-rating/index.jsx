@@ -1,58 +1,82 @@
-// import { useState } from "react";
-// import { FaStar } from "react-icons/fa";
-// import './styles.css';
+// import  { useState } from "react";
 
-// export default function StarRating({ noOfStars = 5 }) {
+// function StarRating({ noOfStars = 5 }) {
+//   // State for keeping track of the current rating and hover state
 //   const [rating, setRating] = useState(0);
 //   const [hover, setHover] = useState(0);
 
-//   function handleClick(getCurrentIndex) {
-//     setRating(getCurrentIndex);
+//   // Function to handle click event on a star
+//   function handleClick(currentIndex) {
+//     setRating(currentIndex);
 //   }
 
-//   function handleMouseEnter(getCurrentIndex) {
-//     setHover(getCurrentIndex);
+//   // Function to handle mouse enter event on a star
+//   function handleMouseEnter(currentIndex) {
+//     setHover(currentIndex);
 //   }
 
+//   // Function to handle mouse leave event on a star
 //   function handleMouseLeave() {
-//     setHover(rating);
+//     setHover(0);
 //   }
 
-//   return (
-//     <div className="star-rating">
-//       {[...Array(noOfStars)].map((_, index) => {
-//         index += 1;
+//   // Array to hold JSX elements for stars
+//   const stars = [];
 
-//         return (
-//           <FaStar
-//             key={index}
-//             className={index <= (hover || rating) ? "active" : "inactive"}
-//             onClick={() => handleClick(index)}
-//             onMouseMove={() => handleMouseEnter(index)}
-//             onMouseLeave={() => handleMouseLeave()}
-//             size={40}
-//           />
-//         );
-//       })}
-//     </div>
-//   );
+//   // Loop to create star elements based on the number of stars
+//   for (let i = 1; i <= noOfStars; i++) {
+//     stars.push(
+//       <span
+//         key={i}
+//         className={i <= (hover || rating) ? "active" : "inactive"}
+//         onClick={() => handleClick(i)}
+//         onMouseEnter={() => handleMouseEnter(i)}
+//         onMouseLeave={handleMouseLeave}
+//       >
+//         ★
+//       </span>
+//     );
+//   }
+
+//   // Render the star rating component
+//   return <div className="star-rating">{stars}</div>;
 // }
 
+// export default StarRating;
 
 
-import {useState } from 'react';
-import {FaStar } from'react-icons/fa';
+import  { useState } from 'react';
 import './styles.css';
 
-export default function StarRating(noOfStars = 5) {
+export default function StarRating({ noOfStars = 5 }) {
+  const [rating, setRating] = useState(0);
+  const [hover, setHover] = useState(0);
 
+  function handleClick(currentIndex) {
+    setRating(currentIndex);
+  }
 
-    const [rating, setRating] = useState(0);
-    const [hover, setHover] = useState(0);
+  function handleMouseEnter(currentIndex) {
+    setHover(currentIndex);
+  }
 
-function handleClick(getCurrentIndex) {
-    set
-}
+  function handleMouseLeave() {
+    setHover(0);
+  }
 
-
+  const stars = [];
+  for (let i = 1; i <= noOfStars; i++) {
+    stars.push(
+      <span
+        key={i}
+        className={i <= (hover || rating) ? "active" : "inactive"}
+        onClick={() => handleClick(i)}
+        onMouseEnter={() => handleMouseEnter(i)}
+        onMouseLeave={handleMouseLeave}
+      >
+        ★
+      </span>
+    );
+  }
+  return <div className='star-rating'>{stars}</div>;
 }

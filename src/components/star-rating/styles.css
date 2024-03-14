@@ -1,7 +1,14 @@
-.active {
-    color: #fff700;
-  }
-  
-  .inactive {
-    color: #000000;
-  }
+/* styles.css */
+.star-rating {
+  display: inline-block;
+}
+
+.star-rating span {
+  font-size: 100px; /* Adjust the size of the stars */
+  color: #ccc; /* Default color for inactive stars */
+  cursor: pointer;
+}
+
+.star-rating span.active {
+  color: #00ff6a; /* Color for active stars */
+}
