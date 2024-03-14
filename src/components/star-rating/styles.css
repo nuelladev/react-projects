@@ -4,11 +4,11 @@
 }
 
 .star-rating span {
-  font-size: 100px; /* Adjust the size of the stars */
-  color: #ccc; /* Default color for inactive stars */
+  font-size: 100px; 
+  color: #ccc; 
   cursor: pointer;
 }
 
 .star-rating span.active {
-  color: #00ff6a; /* Color for active stars */
+  color: #00ff6a; 
 }
